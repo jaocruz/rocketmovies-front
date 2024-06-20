@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
+  width: 100%;
   height: 56px;
-  width: fit-content;
   
   display: flex;
   padding: 14px 32px;
   border-radius: 8px;
+
+  gap: 8px;
   
   align-items: center;
   justify-content: center;

@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
+import { MoviePreview } from './pages/moviePreview'
 import { Home } from './pages/home'
+
+import { Review } from './components/review'
 
 import theme from './styles/theme'
 

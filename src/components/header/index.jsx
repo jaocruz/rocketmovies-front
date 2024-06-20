@@ -1,7 +1,6 @@
 import { Container, Profile } from "./styles";
 
 import { Input } from "../input";
-import { FiPlus } from "react-icons/fi";
 
 export function Header(){
   return(
@@ -10,7 +9,6 @@ export function Header(){
       <h1>RocketMovies</h1>
 
       <Input
-      icon={FiPlus}
         value="Pesquisar pelo título"
       />
 
