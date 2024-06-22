@@ -41,7 +41,7 @@ export function CreateMovie(){
             />
 
             <Button
-              value="Salvar alterações"
+              value="Salvar alterações teste"
             />
           </div>
         </Form>
