@@ -8,6 +8,8 @@ export const Container = styled.button`
   padding: 14px 32px;
   border-radius: 8px;
 
+  border: none;
+
   gap: 8px;
   
   align-items: center;

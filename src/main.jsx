@@ -1,10 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { MoviePreview } from './pages/moviePreview'
-import { Home } from './pages/home'
-
-import { Review } from './components/review'
+import { CreateMovie } from './pages/createMovie'
 
 import theme from './styles/theme'
 
@@ -15,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle/>
-      <Home/>
+      <CreateMovie/>
     </ThemeProvider>
   </React.StrictMode>,
 )

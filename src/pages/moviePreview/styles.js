@@ -14,16 +14,12 @@ export const Container = styled.div`
     }
 
     .page {
-      overflow-y: scroll;
-
       height: 70vh;
       overflow-y: scroll;
       padding-right: 10px;
 
       display: flex;
       flex-direction: column;
-
-      gap: 24px;
             
       &::-webkit-scrollbar {
         width: 10px;
@@ -44,47 +40,59 @@ export const Container = styled.div`
     }
 
     section {
-      display: grid;
-      grid-template-areas:
-      "title rating"
-      "user date"
-      "tags tags"
-      "description description";
-
-      align-items: center;
-
-      background-color: transparent;
-
-      padding: 0;
+      display: flex;
+      align-items: baseline;
     }
 
     h1 {
       font-size: 36px;
-      grid-area: title;
+      font-weight: 600;
 
-      margin: 24px 0;
-    }
-
-    .rating {
-      display: flex;
-
-      gap: 10px;
-      margin: 4px 0 0 -590px;
+      margin: 24px 18px 0 0;
+      color: ${({theme}) => theme.COLORS.WHITE};
     }
 
     svg {
       width: 20px;
       height: 20px;
+      margin-right: 10px;
+      color: ${({theme}) => theme.COLORS.PINK};
+    }
+
+    img {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .infos {
+      display: flex;
+      margin-top: 24px;
+      color: ${({theme}) => theme.COLORS.WHITE};
+
+      > svg {
+        margin-left: 15px;
+      }
     }
 
     .tags {
       display: flex;
-      grid-area: tags;
+      gap: 8px;
+      margin: 40px 0;
+    }
+
+    span {
+      padding: 8px 16px;
+      border-radius: 8px;
+      
+      color: ${({theme}) => theme.COLORS.TAG_TXT};
+      background-color: ${({theme}) => theme.COLORS.TAG_BG2};
     }
 
     p {
-      margin-top: 40px;
-      grid-area: description;
+      font-weight: 300;
+      text-align: justify;
       color: ${({theme}) => theme.COLORS.WHITE};
     }
   }

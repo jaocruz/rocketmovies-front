@@ -25,14 +25,14 @@ export const Container = styled.section`
     > span {
       display: flex;
       
-      gap: 3px;
+      gap: 6px;
       margin: 8px 0 15px;
 
       color: ${({theme}) => theme.COLORS.PINK};
 
       svg {
-        width: 12px;
-        height: 12px;
+        width: 14px;
+        height: 14px;
       }
 
     }
