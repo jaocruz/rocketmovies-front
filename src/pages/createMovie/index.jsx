@@ -5,6 +5,7 @@ import { FiArrowLeft } from "react-icons/fi";
 import { Input } from "../../components/input";
 import { Header } from "../../components/header";
 import { Button } from "../../components/button";
+import { MovieItem } from "../../components/movieItem";
 
 export function CreateMovie(){
   return(
@@ -32,7 +33,14 @@ export function CreateMovie(){
           <h2>Marcadores</h2>
 
           <div className="tagsMovie">
+            <MovieItem
+              value="React"
+            />
 
+            <MovieItem
+              placeholder="Novo filme"
+              isNew
+            />
           </div>
 
           <div className="buttons">
@@ -41,7 +49,7 @@ export function CreateMovie(){
             />
 
             <Button
-              value="Salvar alterações teste"
+              value="Salvar alterações"
             />
           </div>
         </Form>

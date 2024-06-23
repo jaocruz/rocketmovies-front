@@ -84,6 +84,9 @@ export const Form = styled.form`
   }
 
   .tagsMovie {
+    display: flex;
+    gap: 24px;
+    
     width: 100%;
     padding: 16px;
     margin: 24px 0 40px;
@@ -95,10 +98,14 @@ export const Form = styled.form`
 
   .buttons {
     display: flex;
-    gap: 40px;
+    gap: 45px;
+
+    margin-left: 32px;
+    margin-bottom: 10px;
   }
 
   button:first-child{
+    border: 10px;
     color: ${({theme}) => theme.COLORS.PINK};
     background-color: ${({theme}) => theme.COLORS.BLACK};
   }
