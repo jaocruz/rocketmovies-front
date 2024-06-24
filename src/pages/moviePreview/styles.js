@@ -11,6 +11,7 @@ export const Container = styled.div`
       gap: 8px;
       color: ${({theme}) => theme.COLORS.PINK};
       margin-top: 155px;
+      margin-bottom: 24px;
     }
 
     .page {
@@ -48,7 +49,7 @@ export const Container = styled.div`
       font-size: 36px;
       font-weight: 600;
 
-      margin: 24px 18px 0 0;
+      margin-bottom: 18px;
       color: ${({theme}) => theme.COLORS.WHITE};
     }
 
@@ -68,6 +69,8 @@ export const Container = styled.div`
 
     .infos {
       display: flex;
+      align-items: center;
+      
       margin-top: 24px;
       color: ${({theme}) => theme.COLORS.WHITE};
 
@@ -92,6 +95,7 @@ export const Container = styled.div`
 
     p {
       font-weight: 300;
+      line-height: 24px;
       text-align: justify;
       color: ${({theme}) => theme.COLORS.WHITE};
     }

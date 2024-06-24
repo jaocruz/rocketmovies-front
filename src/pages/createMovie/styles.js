@@ -10,12 +10,13 @@ export const Container = styled.div`
       gap: 8px;
       color: ${({theme}) => theme.COLORS.PINK};
       margin-top: 155px;
+      margin-bottom: 24px;
     }
 
     h1 {
       font-size: 36px;
       font-weight: 500;
-      margin: 24px 0 40px;
+      margin-bottom: 40px;
       color: ${({theme}) => theme.COLORS.WHITE};
     }
   }

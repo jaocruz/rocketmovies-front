@@ -87,6 +87,7 @@ export const Form = styled.form`
   }
 
   > button {
+    margin: 0 auto;
     margin-top: 16px;
   }
 `;
