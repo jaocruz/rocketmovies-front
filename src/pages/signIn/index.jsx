@@ -19,16 +19,16 @@ export function SignIn(){
 
         <Input
           icon={FiMail}
-          value="E-mail"
+          placeholder="E-mail"
         />
 
         <Input
           icon={FiLock}
-          value="Senha"
+          placeholder="Senha"
         />
 
         <Button
-          value="Entrar"
+          title="Entrar"
         />
 
         <Link to="/register">Criar conta</Link>
