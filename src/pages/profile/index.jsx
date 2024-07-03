@@ -27,26 +27,26 @@ export function Profile(){
 
         <Input
           icon={FiUser}
-          value="Nome"
+          placeholder="Nome"
         />
 
         <Input
           icon={FiMail}
-          value="E-mail"
+          placeholder="E-mail"
         />
 
         <Input
           icon={FiLock}
-          value="Senha atual"
+          placeholder="Senha atual"
         />
 
         <Input
           icon={FiLock}
-          value="Nova senha"
+          placeholder="Nova senha"
         />
 
         <Button
-          value="Salvar"
+          title="Salvar"
         />
       </Form>
 

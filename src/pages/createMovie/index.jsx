@@ -21,11 +21,11 @@ export function CreateMovie(){
           
           <div className="inputs">
             <Input
-              value="Título"
+              placeholder="Título"
             />
 
             <Input
-              value="Sua nota (de 0 a 5)"
+              placeholder="Sua nota (de 0 a 5)"
             />
           </div>
 
@@ -46,11 +46,11 @@ export function CreateMovie(){
 
           <div className="buttons">
             <Button
-              value="Excluir filme"
+              title="Excluir filme"
             />
             
             <Button
-              value="Salvar alterações"
+              title="Salvar alterações"
             />  
           </div>
         </Form>

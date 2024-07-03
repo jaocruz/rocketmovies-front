@@ -13,7 +13,7 @@ export function Header(){
       </Link>
 
       <Input
-        value="Pesquisar pelo título"
+        placeholder="Pesquisar pelo título"
       />
 
       <Profile>

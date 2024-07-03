@@ -20,7 +20,7 @@ export function Home(){
           <Link to="/createmovie">
             <Button
               icon={FiPlus}
-              value="Adicionar filme"
+              title="Adicionar filme"
             />
           </Link>
         </div>
