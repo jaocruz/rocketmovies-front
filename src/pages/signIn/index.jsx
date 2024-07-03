@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Container, Form, Background } from "./styles";
 
 import { Link } from "react-router-dom";
@@ -8,6 +10,7 @@ import { Input } from "../../components/input";
 import { Button } from "../../components/button";
 
 export function SignIn(){
+
   return(
     <Container>
 
@@ -18,11 +21,13 @@ export function SignIn(){
         <h2>Faça seu login</h2>
 
         <Input
+          type="text"
           icon={FiMail}
           placeholder="E-mail"
         />
 
         <Input
+          type="password"
           icon={FiLock}
           placeholder="Senha"
         />

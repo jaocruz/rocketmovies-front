@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Container, Form, Background } from "./styles";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 
@@ -17,7 +17,10 @@ export function SignUp(){
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   function handleSignUp(){
+    
     if(!name || !email || !password){
       return alert("Preencha todos os campos!");
     }
@@ -25,6 +28,7 @@ export function SignUp(){
     api.post("/users", { name, email, password })
     .then(() => {
       alert("Usuário cadastrado com sucesso!");
+      navigate("/")
     })
     .catch(error => {
       if(error.response){
@@ -45,18 +49,21 @@ export function SignUp(){
         <h2>Crie sua conta</h2>
 
         <Input
+          type="text"
           icon={FiUser}
           placeholder="Nome"
           onChange={e => setName(e.target.value)}
         />
 
         <Input
+          type="text"
           icon={FiMail}
           placeholder="E-mail"
           onChange={e => setEmail(e.target.value)}
         />
 
         <Input
+          type="password"
           icon={FiLock}
           placeholder="Senha"
           onChange={e => setPassword(e.target.value)}
