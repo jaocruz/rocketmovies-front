@@ -1,3 +1,5 @@
+import { useAuth } from "../../hooks/auth";
+
 import { Container, Profile } from "./styles";
 
 import { Link } from "react-router-dom";
@@ -5,6 +7,8 @@ import { Link } from "react-router-dom";
 import { Input } from "../input";
 
 export function Header(){
+  const { signOut } = useAuth();
+
   return(
     <Container>
       
@@ -19,7 +23,7 @@ export function Header(){
       <Profile>
         <div>
           <h2>João Pedro Cruz</h2>
-          <a href="">sair</a>
+          <a onClick={signOut}>sair</a>
         </div>
 
         <Link to="/profile">
