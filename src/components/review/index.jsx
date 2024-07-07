@@ -3,7 +3,7 @@ import { RxStar, RxStarFilled } from "react-icons/rx";
 
 const MAX_RATING = 5;
 
-export const Review = ({ title, rating, description, tags }) => {
+export const Review = ({ title, rating, description, markers }) => {
   return (
     <Container>
       <div className="info">
@@ -18,12 +18,12 @@ export const Review = ({ title, rating, description, tags }) => {
 
       <p>{description}</p>
 
-      <div className="tags">
-        {tags && tags.length > 0 && (
+      <div className="markers">
+        {markers && markers.length > 0 && (
           <>
-            {tags.map((tag, index) => (
-              <span key={index} className="tag">
-                {tag}
+            {markers.map((marker, index) => (
+              <span key={index} className="markers">
+                {marker}
               </span>
             ))}
           </>

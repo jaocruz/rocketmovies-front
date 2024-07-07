@@ -84,7 +84,7 @@ export const Form = styled.form`
     color: ${({theme}) => theme.COLORS.GRAY_400};
   }
 
-  .tagsMovie {
+  .markersMovie {
     display: flex;
     gap: 24px;
     

@@ -47,7 +47,7 @@ export const Container = styled.section`
     color: ${({theme}) => theme.COLORS.GRAY_400};
   }
 
-  > .tags {
+  > .markers {
     display: flex;
 
     margin: 0;

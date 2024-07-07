@@ -60,6 +60,16 @@ function AuthProvider({ children }){
     }
   }
 
+  async function getMovies() {
+    try {
+      const response = await api.get("/movies");
+      return response.data.movies;
+    } catch (error) {
+      console.error("Erro ao buscar filmes:", error);
+      return [];
+    }
+  }
+
   useEffect(() => {
     const token = localStorage.getItem("@rocketmovies:token");
     const user = localStorage.getItem("@rocketmovies:user");
@@ -79,6 +89,7 @@ function AuthProvider({ children }){
       signIn,
       signOut,
       updateProfile,
+      getMovies,
       user: data.user
     }}
     >

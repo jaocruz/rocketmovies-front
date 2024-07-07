@@ -1,6 +1,7 @@
 import { useAuth } from "../../hooks/auth";
 
 import { api } from "../../services/api";
+
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 import { Container, Profile } from "./styles";
@@ -8,12 +9,13 @@ import { Container, Profile } from "./styles";
 import { Link } from "react-router-dom";
 
 import { Input } from "../input";
+import { useEffect, useState } from "react";
 
 export function Header(){
   const { signOut, user } = useAuth();
 
   const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
-
+  
   return(
     <Container>
       
@@ -23,6 +25,7 @@ export function Header(){
 
       <Input
         placeholder="Pesquisar pelo título"
+        onChange={(e) => setSearch(e.target.value)}
       />
 
       <Profile>
