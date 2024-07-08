@@ -4,7 +4,6 @@ import { RxStar, RxStarFilled } from "react-icons/rx";
 const MAX_RATING = 5;
 
 export const Review = ({data}) => {
-  console.log(data)
 
   return (
     <Container>
