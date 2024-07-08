@@ -13,17 +13,36 @@ import { useState, useEffect } from "react";
 
 export function Home(){
 
-  const { getMovies } = useAuth();
+  const { getMovies, user } = useAuth();
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    async function fetchMovies() {
-      const fetchedMovies = await getMovies();
-      setMovies(fetchedMovies);
-    }
+    const fetchMovies = async () => {
+      setIsLoading(true);
+      try {
+        const moviesData = await getMovies(user.id);
+        setMovies(moviesData);
+      } catch (error) {
+        console.error("Erro ao buscar filmes:", error);
+        setMovies([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    fetchMovies();
-  }, [getMovies]);
+    if (user.id) {
+      fetchMovies();
+    }
+  }, [getMovies, user.id]);
+
+  if(isLoading){
+    return (
+      <div>
+        carregando
+      </div>
+    )
+  }
 
   return(
     <Container>
@@ -44,13 +63,12 @@ export function Home(){
         <section className="reviews">
             
           {
-            movies.map(movie => (
-            <Review
-              key={String(movie.id)}
-              data={movie}
-            />
-            ))
-          }
+            movies?.map(movie => (
+              <Review
+                key={movie.id}
+                data={movie}
+              />
+            ))}
               
         </section>
       </main>

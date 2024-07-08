@@ -41,6 +41,14 @@ export function CreateMovie(){
       return alert("Digite uma avaliação de 0 a 5.")
     }
 
+    if(rating < 0 || rating > 5 || isNaN(rating)){
+      return alert("Digite uma avaliação válida de 0 a 5.");
+    }
+
+    if(markers.length === 0){
+      return alert("Adicione ao menos um marcador.");
+    }
+
     if(newMarker){
       return alert("Você deixou de adicionar um marcador.")
     }
@@ -69,12 +77,16 @@ export function CreateMovie(){
           <div className="inputs">
             <Input
               placeholder="Título"
+              type="text"
               value={title}
               onChange={e => setTitle(e.target.value)}
             />
 
             <Input
               placeholder="Sua nota (de 0 a 5)"
+              type="number"
+              min="0"
+              max="5"
               value={rating}
               onChange={e => setRating(e.target.value)}
             />
@@ -82,6 +94,7 @@ export function CreateMovie(){
 
           <textarea
             placeholder="Observações"
+            type="text"
             value={description}
             onChange={e => setDescription(e.target.value)}
           >

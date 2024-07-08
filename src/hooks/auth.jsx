@@ -60,10 +60,10 @@ function AuthProvider({ children }){
     }
   }
 
-  async function getMovies() {
+  async function getMovies(id) {
     try {
-      const response = await api.get("/movies");
-      return response.data.movies;
+      const response = await api.get(`/movies?user_id=${id}`);
+      return response.data;
     } catch (error) {
       console.error("Erro ao buscar filmes:", error);
       return [];
