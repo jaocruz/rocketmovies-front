@@ -3,10 +3,10 @@ import { RxStar, RxStarFilled } from "react-icons/rx";
 
 const MAX_RATING = 5;
 
-export const Review = ({data}) => {
+export const Review = ({data, ...rest}) => {
 
   return (
-    <Container>
+    <Container {...rest}>
       <div className="info">
         <h1>{data.title}</h1>
 
@@ -29,10 +29,7 @@ export const Review = ({data}) => {
             ))}
           </>
         )}
-      </div>
-
-      
-      
+      </div>      
     </Container>
   );
 };

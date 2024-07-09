@@ -7,6 +7,8 @@ export const Container = styled.section`
   border-radius: 16px;
 
   background-color: ${({theme}) => theme.COLORS.DARK_PINK};
+
+  cursor: pointer;
   
   > .info {
     margin: 0;
@@ -69,5 +71,4 @@ export const Container = styled.section`
     }
     
   }
-  
 `;

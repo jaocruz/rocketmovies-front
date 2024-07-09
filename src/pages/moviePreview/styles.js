@@ -71,7 +71,7 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       
-      margin-top: 24px;
+      margin-top: 14px;
       color: ${({theme}) => theme.COLORS.WHITE};
 
       > svg {
@@ -98,6 +98,11 @@ export const Container = styled.div`
       line-height: 24px;
       text-align: justify;
       color: ${({theme}) => theme.COLORS.WHITE};
+    }
+
+    .rating{
+      background-color: transparent;
+      margin-left: 10px;
     }
   }
 `;

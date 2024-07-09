@@ -1,7 +1,5 @@
 import { Container } from './styles';
 
-import { Link } from 'react-router-dom';
-
 import { FiPlus } from 'react-icons/fi';
 
 import { Header } from '../../components/header';
@@ -10,26 +8,26 @@ import { Review } from '../../components/review';
 
 import { useAuth } from '../../hooks/auth';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Home() {
   const { getMovies, user } = useAuth();
+
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMovies = async () => {
-      setIsLoading(true);
       try {
         const moviesData = await getMovies(user.id);
         setMovies(moviesData);
-        setFilteredMovies(moviesData); // Inicialmente, os filmes filtrados são os mesmos que todos os filmes
+        setFilteredMovies(moviesData);
       } catch (error) {
         console.error('Erro ao buscar filmes:', error);
         setMovies([]);
         setFilteredMovies([]);
-      } finally {
-        setIsLoading(false);
       }
     };
 
@@ -38,15 +36,15 @@ export function Home() {
     }
   }, [getMovies, user.id]);
 
-  const handleSearch = (searchTerm) => {
+  const handleSearch = (search) => {
     const filtered = movies.filter((movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+      movie.title.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredMovies(filtered);
   };
 
-  if (isLoading) {
-    return <div>Carregando...</div>;
+  function handleDetails(id){
+    navigate(`/moviepreview/${id}`)
   }
 
   return (
@@ -57,9 +55,11 @@ export function Home() {
         <div className="topo">
           <h1>Meus filmes</h1>
 
-          <Link to="/createmovie">
-            <Button icon={FiPlus} title="Adicionar filme" />
-          </Link>
+          <Button
+            icon={FiPlus}
+            title="Adicionar filme"
+            onClick={() => navigate("/createmovie")}
+          />
         </div>
 
         <section className="reviews">
@@ -67,7 +67,11 @@ export function Home() {
             <p>Nenhum filme encontrado.</p>
           ) : (
             filteredMovies.map((movie) => (
-              <Review key={movie.id} data={movie} />
+              <Review
+                key={movie.id}
+                data={movie}
+                onClick={() => handleDetails(movie.id)}
+              />
             ))
           )}
         </section>
