@@ -49,6 +49,7 @@ export const Form = styled.form`
 
   > button {
     margin-top: 24px;
+    margin-left: 0px;
   }
 `;
 

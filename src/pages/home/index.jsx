@@ -58,7 +58,7 @@ export function Home() {
           <Button
             icon={FiPlus}
             title="Adicionar filme"
-            onClick={() => navigate("/createmovie")}
+            onClick={() => navigate('/createmovie')}
           />
         </div>
 

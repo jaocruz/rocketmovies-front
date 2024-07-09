@@ -3,7 +3,7 @@ import { Container } from "./styles";
 import { FiArrowLeft } from "react-icons/fi";
 import { RxStar, RxStarFilled, RxClock } from "react-icons/rx";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Header } from "../../components/header";
 
@@ -19,9 +19,37 @@ export function MoviePreview(){
 
   const [data, setData] =useState();
 
+  const [title, setTitle] = useState("");
+  const [rating, setRating] = useState("");
+  const [description, setDescription] = useState("");
+
+  const [markers, setMarkers] = useState([]);
+
   const params = useParams();
 
   const MAX_RATING = 5;
+
+  const navigate = useNavigate();
+
+  function handleBack(){
+    navigate(-1)
+  }
+
+  async function handleDeleteMarker(){
+    const result = window.confirm("Você realmente deseja excluir esse filme?");
+
+    if(result){
+      await api.delete(`/movies/${params.id}`, {
+        title,
+        description,
+        rating,
+        markers
+      });
+
+      alert("Filme excluído com sucesso.");
+      navigate("/");
+    }
+  }
 
   useEffect(() => {
     async function fetchMovies(){
@@ -37,7 +65,7 @@ export function MoviePreview(){
       <Header/>
 
       <main>
-        <Link to="/"><FiArrowLeft/> Voltar</Link>
+        <a onClick={handleBack}><FiArrowLeft/> Voltar</a>
 
         {
           data &&
@@ -51,26 +79,29 @@ export function MoviePreview(){
               )}
             </span>
           </section>
-
+          
           <div className="infos">
             <img src={avatarURL} alt="" />
             <p>Por {user.name}</p>
             <RxClock/>
             <p>{data.created_at}</p>
           </div>
+          
 
           <div className="tags">
             <div className="markers">
-              {data.markers && data.markers.length > 0 && (
-                <>
-                  {data.markers.map((marker) => (
-                    <span key={marker.id} className="markers">
-                      {marker.name}
-                    </span>
-                  ))}
-                </>
-              )}
+                {data.markers && data.markers.length > 0 && (
+                  <>
+                    {data.markers.map((marker) => (
+                      <span key={marker.id} className="markers">
+                        {marker.name}
+                      </span>
+                    ))}
+                  </>
+                )}
             </div>
+
+            <a onClick={handleDeleteMarker}>Excluir</a>
           </div>
 
           <p>{data.description}</p>

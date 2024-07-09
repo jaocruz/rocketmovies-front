@@ -32,6 +32,10 @@ export function CreateMovie(){
     setMarkers(prevState => prevState.filter(marker => marker !== deleted));
   }
 
+  function handleBack(){
+    navigate(-1)
+  }
+
   async function handleNewMovie(){
     if(!title){
       return alert("Digite um título.")
@@ -64,12 +68,23 @@ export function CreateMovie(){
     navigate("/");
   }
 
+  async function handleDeleteMarker(){
+    const result = window.confirm("Você realmente deseja excluir esse filme?");
+
+    if(result){
+      alert("Filme excluído com sucesso.");
+      navigate("/");
+    } else {
+      return
+    }
+  }
+
   return(
     <Container>
       <Header/>
 
       <main>
-        <Link to="/"><FiArrowLeft/> Voltar</Link>
+        <a onClick={handleBack}><FiArrowLeft/> Voltar</a>
 
         <Form>
           <h1>Novo filme</h1>
@@ -93,7 +108,7 @@ export function CreateMovie(){
           </div>
 
           <textarea
-            placeholder="Observações"
+            placeholder="Descrição"
             type="text"
             value={description}
             onChange={e => setDescription(e.target.value)}
@@ -125,6 +140,7 @@ export function CreateMovie(){
           <div className="buttons">
             <Button
               title="Excluir filme"
+              onClick={handleDeleteMarker}
             />
             
             <Button

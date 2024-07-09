@@ -80,10 +80,23 @@ export const Container = styled.div`
     }
 
     .tags {
-      display: flex;
-      gap: 8px;
       margin: 40px 0;
+
+      display: flex;
+      justify-content: space-between;
+
+      > .markers{
+        display: flex;
+        gap: 8px;
+      }
+
+      > a {
+        margin: 0;
+        margin-top: -2px;
+      }
     }
+
+    
 
     span {
       padding: 8px 16px;

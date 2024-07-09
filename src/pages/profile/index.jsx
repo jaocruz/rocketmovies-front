@@ -7,7 +7,7 @@ import { api } from "../../services/api";
 
 import { Container, Form, Avatar } from "./styles";
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 
@@ -21,6 +21,8 @@ export function Profile(){
   const [email, setEmail] = useState(user.email);
   const [oldPassword, setOldPassword] = useState();
   const [newPassword, setNewPassword] = useState();
+
+  const navigate = useNavigate();
 
   const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
@@ -48,10 +50,14 @@ export function Profile(){
     setAvatar(imagePreview);
   }
 
+  function handleBack(){
+    navigate(-1)
+  }
+
   return(
     <Container>
       <header>
-        <Link to="/"><FiArrowLeft/>Voltar</Link>
+        <a onClick={handleBack}><FiArrowLeft/>Voltar</a>
       </header>
 
       <Form>
