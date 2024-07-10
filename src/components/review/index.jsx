@@ -1,4 +1,5 @@
 import { Container } from "./styles";
+
 import { RxStar, RxStarFilled } from "react-icons/rx";
 
 const MAX_RATING = 5;

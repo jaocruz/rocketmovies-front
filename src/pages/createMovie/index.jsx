@@ -1,17 +1,16 @@
 import { Container, Form } from "./styles";
 
-import { Link } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi";
-
-import { useNavigate } from "react-router-dom";
-
-import { useState } from "react";
-import { api } from "../../services/api";
-
 import { Input } from "../../components/input";
 import { Header } from "../../components/header";
 import { Button } from "../../components/button";
 import { MovieItem } from "../../components/movieItem";
+
+import { FiArrowLeft } from "react-icons/fi";
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { api } from "../../services/api";
 
 export function CreateMovie(){
   const [title, setTitle] = useState("");

@@ -1,18 +1,17 @@
-import { useState } from "react";
-import { useAuth } from "../../hooks/auth";
-
-import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
-
-import { api } from "../../services/api";
-
 import { Container, Form, Avatar } from "./styles";
-
-import { useNavigate } from "react-router-dom";
-
-import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 
 import { Input } from "../../components/input";
 import { Button } from "../../components/button";
+
+import { useState } from "react";
+import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom";
+
+import { api } from "../../services/api";
+
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+
+import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 
 export function Profile(){
   const { user, updateProfile } = useAuth();

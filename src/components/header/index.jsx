@@ -1,27 +1,32 @@
-import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
+import { useAuth } from "../../hooks/auth";
 
 import { useState } from "react";
-
-import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+import { useNavigate, Link } from "react-router-dom";
 
 import { Container, Profile } from "./styles";
-
-import { Link } from "react-router-dom";
-
 import { Input } from "../input";
+
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Header({ onSearch }){
   const { signOut, user } = useAuth();
 
-  const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
-
   const [search, setSearch] = useState('');
+  
+  const navigate = useNavigate();
+
+  const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
   const handleSearch = (e) => {
     setSearch(e.target.value)
     onSearch(e.target.value)
   };
+
+  function handleSignOut(){
+    navigate("/");
+    signOut();
+  }
 
   return(
     <Container>
@@ -40,7 +45,7 @@ export function Header({ onSearch }){
       <Profile>
         <div>
           <h2>{user.name}</h2>
-          <a onClick={signOut}>sair</a>
+          <a onClick={handleSignOut}>sair</a>
         </div>
 
         <Link to="/profile">

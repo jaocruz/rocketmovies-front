@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { Home } from "../pages/home";
 import { Profile } from "../pages/profile";
@@ -12,6 +12,8 @@ export function AppRoutes(){
       <Route path='/profile' element={<Profile/>} />
       <Route path='/createmovie' element={<CreateMovie/>} />
       <Route path='/moviepreview/:id' element={<MoviePreview/>} />
+
+      <Route path="*" element={<Navigate to="/"/>} />
     </Routes>
   )
 }
